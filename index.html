@@ -13,61 +13,84 @@
         }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.5;
+            line-height: 1.4;
             color: var(--primary-color);
             max-width: 800px;
             margin: 0 auto;
-            padding: 40px;
-            font-size: 14px;
+            padding: 30px;
+            font-size: 13.5px;
+            position: relative; /* For the absolute button */
         }
         a { text-decoration: none; color: var(--link-color); }
         a:hover { text-decoration: underline; }
 
+        /* Floating Download Button (Web Only) */
+        .download-btn {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background-color: #000;
+            color: #fff !important;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 12px;
+            transition: background 0.2s;
+        }
+        .download-btn:hover {
+            background-color: #333;
+            text-decoration: none;
+        }
+
         /* Header */
-        header { text-align: center; margin-bottom: 25px; }
-        h1 { margin: 0; font-size: 28px; text-transform: uppercase; letter-spacing: 1px; color: #000; }
-        .contact-info { margin-top: 8px; font-size: 14px; color: var(--secondary-color); }
+        header { text-align: center; margin-bottom: 20px; }
+        h1 { margin: 0; font-size: 26px; text-transform: uppercase; letter-spacing: 1px; color: #000; }
+        .contact-info { margin-top: 6px; font-size: 13.5px; color: var(--secondary-color); }
         .contact-info span { margin: 0 5px; }
         .links { margin-top: 5px; }
         .links a { font-weight: 500; }
 
         /* Sections */
         h2 {
-            font-size: 16px;
+            font-size: 15px;
             text-transform: uppercase;
             border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 5px;
-            margin-top: 25px;
+            padding-bottom: 4px;
+            margin-top: 20px;
             margin-bottom: 10px;
             letter-spacing: 0.5px;
             color: #000;
         }
 
         /* Skills */
-        .skills-container { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 15px; }
-        .skill-category { font-weight: bold; min-width: 120px; color: #000; }
+        .skills-container { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+        .skill-category { font-weight: bold; min-width: 130px; color: #000; }
         .skill-list { flex: 1; }
 
         /* Experience */
-        .job { margin-bottom: 15px; }
+        .job { margin-bottom: 14px; }
         .job-header { display: flex; justify-content: space-between; align-items: baseline; }
-        .job-title { font-weight: bold; font-size: 15px; color: #000; }
+        .job-title { font-weight: bold; font-size: 14.5px; color: #000; }
         .company { font-style: italic; color: #444; }
-        .date { font-weight: bold; font-size: 13px; text-align: right; min-width: 140px; color: #000; }
+        .date { font-weight: bold; font-size: 12.5px; text-align: right; min-width: 140px; color: #000; }
 
-        ul { margin: 5px 0 0 0; padding-left: 20px; }
+        ul { margin: 4px 0 0 0; padding-left: 20px; }
         li { margin-bottom: 4px; }
 
-        /* Print adjustments */
+        /* Print adjustments - HIDES the download button when saving to PDF! */
         @media print {
             body { padding: 0; max-width: 100%; }
-            @page { margin: 0.5in; }
-            a { color: #000; text-decoration: none; border-bottom: 1px dotted #999; } /* Make links visible in print */
+            @page { margin: 0.4in; }
+            a { color: #000; text-decoration: none; border-bottom: 1px dotted #999; }
             .links a { border: none; }
+            .download-btn { display: none !important; }
         }
     </style>
 </head>
 <body>
+
+    <!-- MAKE SURE the href below matches the name of your actual PDF file -->
+    <a href="Subodh_Upreti_CV.pdf" class="download-btn" download>⬇ Download PDF</a>
 
     <header>
         <h1>Subodh Upreti</h1>
@@ -75,8 +98,8 @@
             Kathmandu, Nepal <span>|</span> 9849664297 <span>|</span> subodh.ur@gmail.com
         </div>
         <div class="links">
-            <a href="https://linkedin.com/in/subodhu/" target="_blank">Linkedin</a> <span>|</span>
-            <a href="https://github.com/subodhu/" target="_blank">Github</a>
+            <a href="https://linkedin.com/in/subodhu/" target="_blank">linkedin.com/in/subodhu</a> <span>|</span>
+            <a href="https://github.com/subodhu/" target="_blank">github.com/subodhu</a>
         </div>
     </header>
 
@@ -88,15 +111,15 @@
         </div>
         <div class="skills-container">
             <div class="skill-category">Frameworks</div>
-            <div class="skill-list">Django, Django REST Framework, FastAPI, gRPC, Vue.js</div>
+            <div class="skill-list">Django, Django REST, FastAPI, Strawberry GraphQL, gRPC, Vue.js</div>
         </div>
         <div class="skills-container">
             <div class="skill-category">Infrastructure</div>
-            <div class="skill-list">AWS (EKS, Kinesis, Athena), Docker, Kubernetes, Temporal, RabbitMQ, Apache Flink</div>
+            <div class="skill-list">AWS (EKS, Kinesis, Athena, Lambda), Docker, Kubernetes, Temporal, RabbitMQ, LLMs</div>
         </div>
         <div class="skills-container">
-            <div class="skill-category">Databases</div>
-            <div class="skill-list">PostgreSQL, MySQL, Redis, MongoDB</div>
+            <div class="skill-category">Databases & Arch.</div>
+            <div class="skill-list">PostgreSQL, Redis, Supabase, Event-Driven Architecture (EDA), CDC, Event Outbox</div>
         </div>
     </section>
 
@@ -111,11 +134,12 @@
                 <span class="date">May 2023 – Present</span>
             </div>
             <ul>
+                <li>Architected and actively developing an AI-powered SaaS subscription manager utilizing <strong>LLMs</strong> to parse invoices, integrating with <strong>Plaid</strong> and Google/Microsoft Workspaces for automated data ingestion.</li>
+                <li>Implementing a fault-tolerant backend using <strong>FastAPI, Strawberry GraphQL, and Supabase</strong>, leveraging <strong>Temporal</strong> and the <strong>Event Outbox pattern</strong> for highly reliable webhook processing.</li>
+                <li>Architected the backend infrastructure for <a href="https://www.pline.io/" target="_blank"><strong>Pline</strong></a> (Browser Extension), implementing Event-Driven Architecture with <strong>Event Outbox, CDC, AWS Lambda, and Temporal</strong> to guarantee reliable data delivery.</li>
                 <li>Enhanced and scaled the core <a href="https://platform.grepsr.com/" target="_blank"><strong>Grepsr Platform</strong></a> by migrating critical data lifecycles to <strong>Temporal</strong> workflows, ensuring fault tolerance and high system availability.</li>
-                <li>Designed and implemented the backend infrastructure for <a href="https://www.pline.io/" target="_blank"><strong>Pline</strong></a> (Browser Extension), managing data pipelines, delivery, and third-party integrations using <strong>Prefect, RabbitMQ, and PostgreSQL</strong>.</li>
                 <li>Engineered high-throughput data pipelines using <strong>Apache Flink and Amazon Kinesis</strong>, enabling real-time ingestion and processing of large-scale datasets.</li>
                 <li>Optimized data operations by integrating <strong>Amazon Athena</strong> and Go-based microservices for automated exports, significantly reducing processing time.</li>
-                <li>Designed event-driven architectures to seamlessly handle complex business processes and long-running operations.</li>
             </ul>
         </div>
 
@@ -162,17 +186,6 @@
             </ul>
         </div>
 
-        <div class="job">
-            <div class="job-header">
-                <div>
-                    <span class="job-title">Python/Django Intern</span> — <span class="company">Real HR Solution</span>
-                </div>
-                <span class="date">June 2016 – Aug 2016</span>
-            </div>
-            <ul>
-                <li>Assisted in developing modules for the RealHRSoft SaaS platform using Django.</li>
-            </ul>
-        </div>
     </section>
 
 </body>
