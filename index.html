@@ -1,192 +1,368 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subodh Upreti - Senior Backend Engineer</title>
-    <style>
-        :root {
-            --primary-color: #333;
-            --secondary-color: #666;
-            --accent-color: #000;
-            --link-color: #0056b3;
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.4;
-            color: var(--primary-color);
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 30px;
-            font-size: 13px;
-            position: relative; /* For the absolute button */
-        }
-        a { text-decoration: none; color: var(--link-color); }
-        a:hover { text-decoration: underline; }
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Subodh Upreti - Senior Backend Engineer</title>
+        <style>
+            :root {
+                --primary-color: #2b2b2b;
+                --secondary-color: #555;
+                --accent-color: #000;
+                --link-color: #0056b3;
+            }
+            body {
+                font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+                line-height: 1.45;
+                color: var(--primary-color);
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 30px;
+                font-size: 13px;
+            }
+            a {
+                text-decoration: none;
+                color: var(--link-color);
+            }
+            a:hover {
+                text-decoration: underline;
+            }
 
-        /* Floating Download Button (Web Only) */
-        .download-btn {
-            position: absolute;
-            top: 30px;
-            right: 30px;
-            background-color: #000;
-            color: #fff !important;
-            padding: 8px 16px;
-            border-radius: 4px;
-            font-weight: bold;
-            font-size: 12px;
-            transition: background 0.2s;
-        }
-        .download-btn:hover {
-            background-color: #333;
-            text-decoration: none;
-        }
+            /* Header */
+            header {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            h1 {
+                margin: 0;
+                font-size: 28px;
+                text-transform: uppercase;
+                letter-spacing: 1.5px;
+                color: #000;
+            }
+            .contact-info {
+                margin-top: 6px;
+                font-size: 13px;
+                color: var(--secondary-color);
+            }
+            .contact-info span {
+                margin: 0 5px;
+                color: #ccc;
+            }
+            .links {
+                margin-top: 5px;
+            }
+            .links a {
+                font-weight: 500;
+            }
 
-        /* Header */
-        header { text-align: center; margin-bottom: 20px; }
-        h1 { margin: 0; font-size: 26px; text-transform: uppercase; letter-spacing: 1px; color: #000; }
-        .contact-info { margin-top: 6px; font-size: 13.5px; color: var(--secondary-color); }
-        .contact-info span { margin: 0 5px; }
-        .links { margin-top: 5px; }
-        .links a { font-weight: 500; }
+            /* Sections */
+            h2 {
+                font-size: 14.5px;
+                text-transform: uppercase;
+                border-bottom: 2px solid var(--accent-color);
+                padding-bottom: 4px;
+                margin-top: 20px;
+                margin-bottom: 12px;
+                letter-spacing: 0.5px;
+                color: #000;
+            }
 
-        /* Sections */
-        h2 {
-            font-size: 15px;
-            text-transform: uppercase;
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 4px;
-            margin-top: 20px;
-            margin-bottom: 10px;
-            letter-spacing: 0.5px;
-            color: #000;
-        }
+            /* About Section */
+            .about-text {
+                text-align: justify;
+                margin-bottom: 15px;
+            }
 
-        /* Skills */
-        .skills-container { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
-        .skill-category { font-weight: bold; min-width: 130px; color: #000; }
-        .skill-list { flex: 1; }
+            /* Skills */
+            .skills-container {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+                margin-bottom: 10px;
+            }
+            .skill-category {
+                font-weight: bold;
+                min-width: 140px;
+                color: #000;
+            }
+            .skill-list {
+                flex: 1;
+            }
 
-        /* Experience */
-        .job { margin-bottom: 14px; }
-        .job-header { display: flex; justify-content: space-between; align-items: baseline; }
-        .job-title { font-weight: bold; font-size: 14.5px; color: #000; }
-        .company { font-style: italic; color: #444; }
-        .date { font-weight: bold; font-size: 12.5px; text-align: right; min-width: 140px; color: #000; }
+            /* Experience */
+            .job {
+                margin-bottom: 16px;
+            }
+            .job-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: baseline;
+                margin-bottom: 4px;
+            }
+            .job-title {
+                font-weight: bold;
+                font-size: 14px;
+                color: #000;
+            }
+            .company {
+                font-style: italic;
+                color: #444;
+            }
+            .date {
+                font-weight: bold;
+                font-size: 12.5px;
+                text-align: right;
+                min-width: 140px;
+                color: #000;
+                font-style: italic;
+            }
 
-        ul { margin: 4px 0 0 0; padding-left: 20px; }
-        li { margin-bottom: 4px; }
+            ul {
+                margin: 0;
+                padding-left: 20px;
+            }
+            li {
+                margin-bottom: 5px;
+                text-align: justify;
+            }
 
-        /* Print adjustments - HIDES the download button when saving to PDF! */
-        @media print {
-            body { padding: 0; max-width: 100%; }
-            @page { margin: 0.4in; }
-            a { color: #000; text-decoration: none; border-bottom: 1px dotted #999; }
-            .links a { border: none; }
-            .download-btn { display: none !important; }
-        }
-    </style>
-</head>
-<body>
-
-    <!-- MAKE SURE the href below matches the name of your actual PDF file -->
-    <a href="Subodh_Upreti_CV.pdf" class="download-btn" download>⬇ Download PDF</a>
-
-    <header>
-        <h1>Subodh Upreti</h1>
-        <div class="contact-info">
-            Kathmandu, Nepal <span>|</span> +977 9849664297 <span>|</span> subodh.ur@gmail.com
-        </div>
-        <div class="links">
-            <a href="https://linkedin.com/in/subodhu/" target="_blank">linkedin.com/in/subodhu</a> <span>|</span>
-            <a href="https://github.com/subodhu/" target="_blank">github.com/subodhu</a>
-        </div>
-    </header>
-
-    <section>
-        <h2>Technical Skills</h2>
-        <div class="skills-container">
-            <div class="skill-category">Languages</div>
-            <div class="skill-list">Python, Go, JavaScript, SQL, Bash</div>
-        </div>
-        <div class="skills-container">
-            <div class="skill-category">Frameworks</div>
-            <div class="skill-list">Django, Django REST, FastAPI, Strawberry GraphQL, PyTest, gRPC, Vue.js</div>
-        </div>
-        <div class="skills-container">
-            <div class="skill-category">Infrastructure</div>
-            <div class="skill-list">AWS (EKS, Kinesis, Athena, Lambda), Docker, Kubernetes, Temporal, Celery, RabbitMQ</div>
-        </div>
-        <div class="skills-container">
-            <div class="skill-category">Databases & Arch.</div>
-            <div class="skill-list">PostgreSQL, Redis, Supabase, Event-Driven Architecture (EDA), CDC, Event Outbox</div>
-        </div>
-    </section>
-
-    <section>
-        <h2>Experience</h2>
-
-        <div class="job">
-            <div class="job-header">
-                <div>
-                    <span class="job-title">Senior Backend Engineer</span> — <span class="company">Grepsr</span>
-                </div>
-                <span class="date">May 2023 – Present</span>
+            /* Print adjustments */
+            @media print {
+                body {
+                    padding: 0;
+                    max-width: 100%;
+                }
+                @page {
+                    margin: 0.4in;
+                }
+                a {
+                    color: #000;
+                    text-decoration: none;
+                    border-bottom: 1px dotted #999;
+                }
+                .links a {
+                    border: none;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Subodh Upreti</h1>
+            <div class="contact-info">
+                Kathmandu, Nepal <span>|</span> +977 9849664297
+                <span>|</span> subodh.ur@gmail.com
             </div>
-            <ul>
-                <li>Architected and actively developing an AI-powered SaaS subscription manager utilizing <strong>LLMs</strong> to parse invoices, integrating with <strong>Plaid</strong> and Google/Microsoft Workspaces for automated data ingestion.</li>
-                <li>Implementing a fault-tolerant backend using <strong>FastAPI, Strawberry GraphQL, and Supabase</strong>, leveraging <strong>Temporal</strong> and the <strong>Event Outbox pattern</strong> for highly reliable webhook processing.</li>
-                <li>Architected the backend infrastructure for <a href="https://www.pline.io/" target="_blank"><strong>Pline</strong></a> (Browser Extension), implementing Event-Driven Architecture with <strong>Event Outbox, CDC, AWS Lambda, and Temporal</strong> to guarantee reliable data delivery.</li>
-                <li>Enhanced and scaled the core <a href="https://platform.grepsr.com/" target="_blank"><strong>Grepsr Platform</strong></a> by migrating critical data lifecycles to <strong>Temporal</strong> workflows, ensuring fault tolerance and high system availability.</li>
-                <li>Engineered high-throughput data pipelines using <strong>Apache Flink and Amazon Kinesis</strong>, enabling real-time ingestion and processing of large-scale datasets.</li>
-                <li>Optimized data operations by integrating <strong>Amazon Athena</strong> and Go-based microservices for automated exports, significantly reducing processing time.</li>
-            </ul>
-        </div>
-
-        <div class="job">
-            <div class="job-header">
-                <div>
-                    <span class="job-title">Backend Engineer</span> — <span class="company">Level9 Tech</span>
-                </div>
-                <span class="date">Sep 2019 – May 2023</span>
+            <div class="links">
+                <a href="https://linkedin.com/in/subodhu" target="_blank"
+                    >Linkedin</a
+                >
+                <span>|</span>
+                <a href="https://github.com/subodhu" target="_blank">Github</a>
             </div>
-            <ul>
-                <li>Architected the backend for <a href="https://merosikha.com" target="_blank"><strong>MeroSikha</strong></a>, a Learning Management System (LMS), implementing real-time student progress tracking and personalized content delivery using Django and React.</li>
-                <li>Developed the API and admin platform for <a href="https://play.google.com/store/apps/details?id=com.krishakapp" target="_blank"><strong>Super Krishak</strong></a>, an agriculture app, implementing asynchronous background tasks using <strong>Huey, Redis, and Docker</strong>.</li>
-                <li>Developed the API infrastructure for <a href="https://uddum.com" target="_blank"><strong>Online Travel Nepal</strong></a>, integrating <strong>Sabre GDS</strong> and multiple payment gateways to facilitate real-time flight and hotel bookings.</li>
-                <li>Mentored a team of junior developers and interns, introducing code review standards and CI/CD practices that accelerated team productivity.</li>
-            </ul>
-        </div>
+        </header>
 
-        <div class="job">
-            <div class="job-header">
-                <div>
-                    <span class="job-title">Python/Django Developer</span> — <span class="company">Magdotnet</span>
-                </div>
-                <span class="date">June 2018 – Aug 2019</span>
+        <section>
+            <h2>About</h2>
+            <div class="about-text">
+                Senior backend engineer with <strong>8 years</strong> of
+                experience scaling systems from monolithic Django apps to
+                high-throughput data pipelines. Currently architecting
+                fault-tolerant, event-driven systems for financial data
+                processing using Temporal and Python. I work primarily in Python
+                and Go, with a particular interest in critical backend
+                challenges: data consistency and resilient workflow
+                orchestration. I enjoy leading technical initiatives and helping
+                junior developers grow into strong engineers.
             </div>
-            <ul>
-                <li>Built the <a href="https://rhinopass.com/" target="_blank"><strong>RhinoPass</strong></a> online ordering system using Django, PostgreSQL, and Docker, creating a scalable solution for high-traffic business usage.</li>
-                <li>Launched <a href="http://photo-agent.net" target="_blank"><strong>Photo Agent</strong></a>, a full-stack e-commerce platform allowing photographers to monetize event photography via secure, client-specific sharing portals.</li>
-                <li>Engineered an automated email marketing system and online ordering engine serving multiple business verticals, streamlining campaign management.</li>
-                <li>Developed a real-time appointment scheduling platform and orchestrated cloud deployments using Bitbucket Pipelines.</li>
-            </ul>
-        </div>
+        </section>
 
-        <div class="job">
-            <div class="job-header">
-                <div>
-                    <span class="job-title">Python/Django Developer</span> — <span class="company">Aayulogic</span>
-                </div>
-                <span class="date">Sep 2016 – Nov 2017</span>
+        <section>
+            <h2>Technical Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">Languages</div>
+                <div class="skill-list">Python, Go, JavaScript, SQL, Bash</div>
             </div>
-            <ul>
-                <li>Led the critical migration of <a href="https://merojob.com" target="_blank"><strong>merojob.com</strong></a> (Nepal’s leading job portal) from legacy PHP to <strong>Python/Django</strong>, resulting in significant performance gains and improved code maintainability.</li>
-                <li>Developed core HR management modules for <a href="https://realhrsoft.com" target="_blank"><strong>RealHRSoft</strong></a>, enhancing payroll and attendance capabilities for enterprise clients.</li>
-            </ul>
-        </div>
+            <div class="skills-container">
+                <div class="skill-category">Frameworks</div>
+                <div class="skill-list">
+                    Django/DRF, gRPC, FastAPI, Strawberry GraphQL, PyTest,
+                    Vue.js
+                </div>
+            </div>
+            <div class="skills-container">
+                <div class="skill-category">Cloud & Infra</div>
+                <div class="skill-list">
+                    AWS (EKS, Kinesis, Lambda, Athena), Docker, Kubernetes,
+                    Temporal, Celery, RabbitMQ
+                </div>
+            </div>
+            <div class="skills-container">
+                <div class="skill-category">Data & Architecture</div>
+                <div class="skill-list">
+                    PostgreSQL, Redis, Supabase, Event-Driven Architecture
+                    (EDA), CDC, Event Outbox, LLMs
+                </div>
+            </div>
+        </section>
 
-    </section>
+        <section>
+            <h2>Experience</h2>
 
-</body>
+            <div class="job">
+                <div class="job-header">
+                    <div>
+                        <span class="job-title">Senior Backend Engineer</span> |
+                        <span class="company">Grepsr</span>
+                    </div>
+                    <span class="date">May 2023 – Present</span>
+                </div>
+                <ul>
+                    <li>
+                        Architecting the backend for a B2B SaaS management platform that optimizes company software spend by identifying idle subscriptions and monitoring workspace usage. Built an event-driven system using FastAPI (for webhook), Strawberry GraphQL (for frontend), Supabase, and Temporal to orchestrate LLM-powered invoice parsing and reliable integrations with Plaid, Google Workspace, and Microsoft 365.
+                    </li>
+                    <li>
+                        Architected the core data orchestration engine for the
+                        <a href="https://www.pline.ai/" target="_blank"><strong>Pline</strong></a>
+                        browser extension using Temporal, Prefect, and RabbitMQ. Engineered end-to-end workflows for data ingestion, automated scheduling, and data export. Built third-party integrations for AWS S3 and Google Sheets ensuring reliable, automated data syncing.
+                    </li>
+                    <li>
+                        Moved the core
+                        <a href="https://platform.grepsr.com/" target="_blank"
+                            ><strong>Grepsr Platform's</strong></a
+                        >
+                        data processing to Temporal workflows, ensuring
+                        automatic retry and recovery from transient failures.
+                    </li>
+                    <li>
+                        Built streaming data pipelines with Flink and Kinesis
+                        that process massive volumes of data in real-time
+                        without bottlenecking during sudden traffic spikes.
+                    </li>
+                    <li>
+                        Replaced manual reports with automated reporting
+                        services, empowering enterprise clients to pull their
+                        own custom reports instantly.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <div>
+                        <span class="job-title">Backend Engineer</span> |
+                        <span class="company">Level9Tech</span>
+                    </div>
+                    <span class="date">Sep 2019 – May 2023</span>
+                </div>
+                <ul>
+                    <li>
+                        Developed the complete backend infrastructure for the
+                        <a
+                            href="https://play.google.com/store/apps/details?id=com.krishakapp"
+                            target="_blank"
+                        ><strong>Super Krishak</strong></a>, mobile app for Nepali farmers, including database architecture, APIs and push notifications. Integrated the Plantix API to enable plant disease detection, and utilized Redis and huey for asynchronous jobs processing.
+                    </li>
+                    <li>
+                        Built the backend for
+                        <a href="https://merosikha.com" target="_blank"
+                            ><strong>MeroSikha</strong></a
+                        >, a Learning Management System (LMS) where teachers
+                        track student progress in real-time, featuring an engine
+                        that automatically suggests content based on student
+                        performance.
+                    </li>
+                    <li>
+                        Connected
+                        <a href="https://uddum.com" target="_blank"
+                            ><strong>Online Travel Nepal's</strong></a
+                        >
+                        booking platform to Sabre GDS and multiple payment
+                        providers, handling the complex edge cases of real-time
+                        flight availability and failed transactions.
+                    </li>
+                    <li>
+                        Mentored junior developers and interns introducing code
+                        reviews and CI/CD practices.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <div>
+                        <span class="job-title">Python/Django Developer</span> |
+                        <span class="company">Magdotnet</span>
+                    </div>
+                    <span class="date">June 2018 – Aug 2019</span>
+                </div>
+                <ul>
+                    <li>
+                        Developed
+                        <a href="https://app.rhinopass.com/country/nepal/" target="_blank"
+                            ><strong>RhinoPass</strong></a
+                        >, a B2B SaaS for the food industry handling digital ordering, payments, menus, and delivery using Django,
+                        PostgreSQL, PostGIS, and Docker.
+                    </li>
+                    <li>
+                        Created
+                        <strong>Photo Agent</strong>, a full-stack e-commerce
+                        platform where photographers upload event photos and
+                        clients purchase them through secure, private galleries.
+                    </li>
+                    <li>
+                        Automated email marketing campaigns for multiple
+                        businesses, reducing manual
+                        list management and scheduling for clients.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <div>
+                        <span class="job-title">Python/Django Developer</span> |
+                        <span class="company">Aayulogic</span>
+                    </div>
+                    <span class="date">Sep 2016 – Nov 2017</span>
+                </div>
+                <ul>
+                    <li>
+                        Contributed to complete rewrite of
+                        <a href="https://merojob.com" target="_blank"
+                            ><strong>merojob.com</strong></a
+                        >
+                        (Nepal's leading job site) from PHP to Django,
+                        successfully removing years of technical debt and
+                        creating a more maintainable codebase.
+                    </li>
+                    <li>
+                        Contributed to core HR management modules for
+                        <a href="https://realhrsoft.com" target="_blank"
+                            ><strong>RealHRSoft</strong></a
+                        >, enhancing payroll and attendance capabilities for
+                        enterprise clients.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Education</h2>
+            <div class="job-header" style="margin-bottom: 0">
+                <div>
+                    <strong
+                        >Bachelor's in Computer Science and Information
+                        Technology (BScCSIT)</strong
+                    >
+                    |
+                    <span class="company"
+                        >St. Xavier's College, Kathmandu, Nepal</span
+                    >
+                </div>
+                <span class="date">Graduated: 2015</span>
+            </div>
+        </section>
+    </body>
 </html>
