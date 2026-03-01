@@ -28,6 +28,24 @@
                 text-decoration: underline;
             }
 
+            /* Floating Download Button (Web Only) */
+            .download-btn {
+                position: absolute;
+                top: 30px;
+                right: 30px;
+                background-color: #000;
+                color: #fff !important;
+                padding: 8px 16px;
+                border-radius: 4px;
+                font-weight: bold;
+                font-size: 12px;
+                transition: background 0.2s;
+            }
+            .download-btn:hover {
+                background-color: #333;
+                text-decoration: none;
+            }
+
             /* Header */
             header {
                 text-align: center;
@@ -144,10 +162,12 @@
                 .links a {
                     border: none;
                 }
+                .download-btn { display: none !important; }
             }
         </style>
     </head>
     <body>
+        <a href="Subodh_Upreti_CV.pdf" class="download-btn" download>⬇ Download PDF</a>
         <header>
             <h1>Subodh Upreti</h1>
             <div class="contact-info">
